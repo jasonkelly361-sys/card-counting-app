@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blackjack Card Counter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Blackjack trainer</p>
+          <h1>Card Counter</h1>
+        </div>
+        <button id="reset-btn" class="secondary-btn">Reset shoe</button>
+      </header>
+
+      <main class="dashboard">
+        <section class="panel stats-panel">
+          <div class="stat-box">
+            <span class="label">Running Count</span>
+            <strong id="running-count">0</strong>
+          </div>
+          <div class="stat-box">
+            <span class="label">True Count</span>
+            <strong id="true-count">0.00</strong>
+          </div>
+          <div class="stat-box">
+            <span class="label">Bet Level</span>
+            <strong id="bet-level">1x</strong>
+          </div>
+        </section>
+
+        <section class="panel control-panel">
+          <div class="input-group">
+            <label for="deck-count">Decks remaining</label>
+            <input id="deck-count" type="number" min="0.5" max="8" step="0.5" value="6" />
+          </div>
+
+          <div class="card-picker" id="card-picker">
+            <button class="card-btn" data-card="2" value="2">2</button>
+            <button class="card-btn" data-card="3" value="3">3</button>
+            <button class="card-btn" data-card="4" value="4">4</button>
+            <button class="card-btn" data-card="5" value="5">5</button>
+            <button class="card-btn" data-card="6" value="6">6</button>
+            <button class="card-btn" data-card="7" value="7">7</button>
+            <button class="card-btn" data-card="8" value="8">8</button>
+            <button class="card-btn" data-card="9" value="9">9</button>
+            <button class="card-btn" data-card="10" value="10">10</button>
+            <button class="card-btn" data-card="J" value="J">J</button>
+            <button class="card-btn" data-card="Q" value="Q">Q</button>
+            <button class="card-btn" data-card="K" value="K">K</button>
+            <button class="card-btn" data-card="A" value="A">A</button>
+          </div>
+
+          <div class="action-row">
+            <button id="undo-btn" class="secondary-btn">Undo</button>
+            <button id="clear-btn" class="ghost-btn">Clear history</button>
+          </div>
+        </section>
+
+        <section class="panel suggestion-panel">
+          <h2>Table read</h2>
+          <div id="table-read" class="table-read neutral">Neutral shoe</div>
+          <ul class="tips-list">
+            <li>Hi-Lo system: 2-6 = +1, 7-9 = 0, 10-A = -1</li>
+            <li>True count = running count ÷ decks remaining</li>
+            <li>Higher true count usually favors the player</li>
+          </ul>
+        </section>
+      </main>
+
+      <section class="panel history-panel">
+        <div class="history-header">
+          <h2>Seen cards</h2>
+          <span id="count-summary">0 cards tracked</span>
+        </div>
+        <div id="history-list" class="history-list"></div>
+      </section>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
