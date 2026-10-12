@@ -31,3 +31,4 @@ Then open `http://localhost:8000` in your browser.
 ## Notes
 
 This is a training tool meant for blackjack card-counting education and practice. It does not track actual casino tables or enforce betting rules.
+python3 -m http.server 8000
